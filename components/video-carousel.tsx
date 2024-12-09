@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/carousel";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import VideoCard from "./video-card";
+import MovieCard from "./movies/card";
 
 interface VideoInterface {
     type: string,
@@ -38,7 +38,7 @@ export default function VideoCarousel({ type, data }: VideoInterface) {
           <CarouselContent>
             {data.map((item, index) => (
               <CarouselItem key={index} className="basis-1/6">
-               <VideoCard item={item} />
+               <MovieCard item={item} />
               </CarouselItem>
             ))}
           </CarouselContent>

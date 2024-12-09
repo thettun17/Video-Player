@@ -1,3 +1,4 @@
+import List from "@/components/movies/list";
 import SearchForm from "@/components/search-form";
 import {
   Breadcrumb,
@@ -32,10 +33,7 @@ export default function Page() {
         </div>
         <SearchForm />
       </header>
-      <div className="flex justify-between">
-        <div>Video Area</div>
-        <div>Video Detail</div>
-      </div>
+      <List />
     </>
   );
 }

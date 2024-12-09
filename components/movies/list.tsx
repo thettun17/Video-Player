@@ -1,18 +1,9 @@
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
-import { SidebarTrigger } from "@/components/ui/sidebar";
+"use client";
+import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import VideoCarousel from "@/components/video-carousel";
-import SearchForm from "@/components/search-form";
-
-export default function Page() {
+import MovieCard from "./card";
+import SelectedMovie from "./selected-movie";
+export default function List() {
   const popularMovie = [
     {
       title: "Smile - 2",
@@ -66,173 +57,105 @@ export default function Page() {
       title: "Smile - 2",
       image: "https://images.metahub.space/poster/small/tt29268110/img",
     },
+    {
+      title: "Arcane",
+      image: "https://images.metahub.space/poster/small/tt11126994/img",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      title: "From",
+    },
+    {
+      title: "Arcane",
+      image: "https://images.metahub.space/poster/small/tt11126994/img",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      title: "From",
+    },
+    {
+      title: "Arcane",
+      image: "https://images.metahub.space/poster/small/tt11126994/img",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      title: "From",
+    },
+    {
+      title: "Arcane",
+      image: "https://images.metahub.space/poster/small/tt11126994/img",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      title: "From",
+    },
+    {
+      title: "Arcane",
+      image: "https://images.metahub.space/poster/small/tt11126994/img",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      title: "From",
+    },
+    {
+      title: "Arcane",
+      image: "https://images.metahub.space/poster/small/tt11126994/img",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      title: "From",
+    },
+    {
+      title: "Arcane",
+      image: "https://images.metahub.space/poster/small/tt11126994/img",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      title: "From",
+    },
+    {
+      title: "Arcane",
+      image: "https://images.metahub.space/poster/small/tt11126994/img",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      title: "From",
+    },
+    {
+      title: "Arcane",
+      image: "https://images.metahub.space/poster/small/tt11126994/img",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      title: "From",
+    },
   ];
+  interface Movie {
+    image: string;
+    title: string;
+  }
+  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
-  const popularSeries = [
-    {
-      title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-  ];
-
-  const featuredMovies = [
-    {
-      title: "The Day of the Jackal",
-      image: "https://images.metahub.space/poster/small/tt24053860/img",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt14218830/img",
-      title: "Abbott Elementary",
-    },
-    {
-      title: "The Day of the Jackal",
-      image: "https://images.metahub.space/poster/small/tt24053860/img",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt14218830/img",
-      title: "Abbott Elementary",
-    },
-    {
-      title: "The Day of the Jackal",
-      image: "https://images.metahub.space/poster/small/tt24053860/img",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt14218830/img",
-      title: "Abbott Elementary",
-    },
-    {
-      title: "The Day of the Jackal",
-      image: "https://images.metahub.space/poster/small/tt24053860/img",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt14218830/img",
-      title: "Abbott Elementary",
-    },
-    {
-      title: "The Day of the Jackal",
-      image: "https://images.metahub.space/poster/small/tt24053860/img",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt14218830/img",
-      title: "Abbott Elementary",
-    },
-    {
-      title: "The Day of the Jackal",
-      image: "https://images.metahub.space/poster/small/tt24053860/img",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt14218830/img",
-      title: "Abbott Elementary",
-    },
-    {
-      title: "The Day of the Jackal",
-      image: "https://images.metahub.space/poster/small/tt24053860/img",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt14218830/img",
-      title: "Abbott Elementary",
-    },
-    {
-      image: "https://images.metahub.space/poster/small/tt14218830/img",
-      title: "Abbott Elementary",
-    },
-  ];
+  const handleMovieSelect = (movie: Movie) => {
+    console.log(movie);
+    setSelectedMovie(movie);
+  };
   return (
     <>
-      <header className="flex items-center justify-between h-16 border-b px-4 ">
-        <div className="flex shrink-0 items-center">
-          <SidebarTrigger className="-ml-1" />
-          <Separator orientation="vertical" className="mr-2 h-4" />
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem className="hidden md:block">
-                <BreadcrumbLink href="/">Home</BreadcrumbLink>
-              </BreadcrumbItem>
-              {/* <BreadcrumbSeparator className="hidden md:block" />
-              <BreadcrumbItem>
-                <BreadcrumbPage>Videos</BreadcrumbPage>
-              </BreadcrumbItem> */}
-            </BreadcrumbList>
-          </Breadcrumb>
-        </div>
-        <SearchForm />
-      </header>
-      <ScrollArea className="h-full-custom w-full px-4">
-        <div className="w-full">
-          <VideoCarousel type="Popular - Movie" data={popularMovie} />
-          <VideoCarousel type="Popular - Series" data={popularSeries} />
-          <VideoCarousel type="Featured - Movie" data={featuredMovies} />
-        </div>
-        <div className="mb-5"></div>
-      </ScrollArea>
+      <div className="w-full flex justify-between">
+        <ScrollArea className="grow h-full-custom px-4">
+          <div className="grid grid-cols-7 gap-4 w-full">
+            {popularMovie.map((item, index) => (
+              <MovieCard
+                key={index}
+                item={item}
+                onSelect={() => handleMovieSelect(item)}
+              />
+            ))}
+          </div>
+        </ScrollArea>
+        <SelectedMovie selectedItem={selectedMovie} />
+      </div>
     </>
   );
 }
