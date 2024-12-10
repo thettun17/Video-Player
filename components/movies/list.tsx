@@ -129,15 +129,74 @@ export default function List() {
       image: "https://images.metahub.space/poster/small/tt9813792/img",
       title: "From",
     },
+    {
+      title: "The Day of the Jackal",
+      image: "https://images.metahub.space/poster/small/tt24053860/img",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt14218830/img",
+      title: "Abbott Elementary",
+    },
+    {
+      title: "The Day of the Jackal",
+      image: "https://images.metahub.space/poster/small/tt24053860/img",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt14218830/img",
+      title: "Abbott Elementary",
+    },
+    {
+      title: "The Day of the Jackal",
+      image: "https://images.metahub.space/poster/small/tt24053860/img",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt14218830/img",
+      title: "Abbott Elementary",
+    },
+    {
+      title: "The Day of the Jackal",
+      image: "https://images.metahub.space/poster/small/tt24053860/img",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt14218830/img",
+      title: "Abbott Elementary",
+    },
+    {
+      title: "The Day of the Jackal",
+      image: "https://images.metahub.space/poster/small/tt24053860/img",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt14218830/img",
+      title: "Abbott Elementary",
+    },
+    {
+      title: "The Day of the Jackal",
+      image: "https://images.metahub.space/poster/small/tt24053860/img",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt14218830/img",
+      title: "Abbott Elementary",
+    },
+    {
+      title: "The Day of the Jackal",
+      image: "https://images.metahub.space/poster/small/tt24053860/img",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt14218830/img",
+      title: "Abbott Elementary",
+    },
+    {
+      image: "https://images.metahub.space/poster/small/tt14218830/img",
+      title: "Abbott Elementary",
+    },
   ];
   interface Movie {
     image: string;
     title: string;
   }
-  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+  const [selectedMovie, setSelectedMovie] = useState<Movie>(popularMovie[0]);
 
   const handleMovieSelect = (movie: Movie) => {
-    console.log(movie);
     setSelectedMovie(movie);
   };
   return (

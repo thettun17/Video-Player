@@ -1,16 +1,7 @@
 interface SelectedMovieProps {
-  selectedItem: { image: string; title: string } | null;
+  selectedItem: { image: string; title: string };
 }
 export default function SelectedMovie({ selectedItem }: SelectedMovieProps) {
-  console.log("select", selectedItem);
-  if (!selectedItem) {
-    return (
-      <div className="w-[29rem] flex-none self-stretch relative rounded-tl-lg px-[2.5rem] py-[2rem] bg-[#0f0d20]">
-        <p className="text-white">Please select a movie to see details.</p>
-      </div>
-    );
-  }
-
   return (
     <>
       <div className="w-[29rem] flex-none self-stretch relative rounded-tl-lg px-[2.5rem] py-[2rem] bg-[#0f0d20]">
@@ -21,8 +12,12 @@ export default function SelectedMovie({ selectedItem }: SelectedMovieProps) {
             className="w-full h-full object-cover object-center opacity-[0.3] blur-[10px] block"
           />
         </div>
-        <div className="text-white">
-          <h1>{selectedItem.title}</h1>
+        <div className="text-white flex flex-col justify-center items-center pt-4">
+          <h1 className="text-3xl">{selectedItem.title}</h1>
+          <div className="flex">
+            <div>127 min</div>
+            <div>2024</div>
+          </div>
         </div>
       </div>
     </>
