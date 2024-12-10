@@ -4,7 +4,7 @@ interface CartItem {
     image: string;
     title: string;
   };
-  onSelect: () => void;
+  onSelect?: () => void;
 }
 
 export default function MovieCard({ item, onSelect }: CartItem) {
