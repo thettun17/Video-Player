@@ -7,7 +7,7 @@ body {
 }
 
 @layer base {
-  :root {
+  .white {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -42,7 +42,8 @@ body {
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-  .dark {
+
+  :root {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
@@ -87,8 +88,34 @@ body {
   }
 }
 
+.selected-item-btn {
+  @apply px-5 py-2 backdrop-blur-lg rounded-full bg-white/10 text-white/70;
+}
+
+.selected-item-btn:hover {
+  @apply bg-white/35 text-white;
+}
+
+.player-btn {
+  @apply px-7 py-3 backdrop-blur-lg rounded-full bg-white/10 text-white/70 flex justify-between items-center gap-x-4;
+}
+
+
+.circle-btn {
+  @apply  bg-white/10 rounded-[100%] w-16 h-16 flex justify-center items-center cursor-pointer text-white/70
+}
+
+.circle-btn:hover {
+  @apply outline outline-2 outline-white 
+}
+
 @layer utilities {
   .h-full-custom {
     height: calc(100svh - 64px);
+  }
+
+  .select-item-height {
+    height: calc(100svh - 64px);
+    max-height: calc(100svh - 64px);
   }
 }

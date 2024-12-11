@@ -9,7 +9,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import VideoCarousel from "@/components/video-carousel";
+import VideoCarousel from "@/components/movies/video-carousel";
 import SearchForm from "@/components/search-form";
 
 export default function Page() {

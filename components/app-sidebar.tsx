@@ -23,7 +23,6 @@ import {
 import {
   Calendar,
   Home,
-  Inbox,
   Search,
   Settings,
   ChevronUp,
@@ -41,16 +40,16 @@ const items = [
     url: "/videos",
     icon: Film,
   },
-  {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  }
+  // {
+  //   title: "Calendar",
+  //   url: "#",
+  //   icon: Calendar,
+  // },
+  // {
+  //   title: "Search",
+  //   url: "#",
+  //   icon: Search,
+  // }
 ];
 
 export default function AppSidebar({

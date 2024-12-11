@@ -7,7 +7,8 @@ import {
 } from "@/components/ui/carousel";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import MovieCard from "./movies/card";
+import MovieCard from "./card";
+import Link from "next/link";
 
 interface VideoInterface {
     type: string,
@@ -23,8 +24,8 @@ export default function VideoCarousel({ type, data }: VideoInterface) {
       <div className="mx-12 mt-4">
         <div className="my-2 flex justify-between items-center">
           <h2>{type}</h2>
-          <Button variant="ghost">
-            See All <ChevronRight />
+          <Button variant="ghost" asChild>
+            <Link href="/videos">See All <ChevronRight /></Link>
           </Button>
         </div>
 
