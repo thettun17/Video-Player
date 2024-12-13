@@ -203,7 +203,7 @@ export default function List() {
     <>
       <div className="w-full flex justify-between">
         <ScrollArea className="grow h-full-custom px-4">
-          <div className="grid grid-cols-7 gap-4 w-full">
+          <div className="grid md:grid-cols-laptop  gap-4  w-full">
             {popularMovie.map((item, index) => (
               <MovieCard
                 key={index}
@@ -213,7 +213,7 @@ export default function List() {
             ))}
           </div>
         </ScrollArea>
-        <SelectedMovie selectedItem={selectedMovie} />
+        <SelectedMovie  selectedItem={selectedMovie} />
       </div>
     </>
   );
