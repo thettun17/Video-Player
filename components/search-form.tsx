@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 export default function SearchForm({ ...props }: React.ComponentProps<"form">) {
   return (
     <div className="flex grow justify-center items-center">
-      <div className="relative w-[30%]">
+      <div className="relative w-[80%] md:w-[30%]">
         <Input
           type="text"
           placeholder="Search..."

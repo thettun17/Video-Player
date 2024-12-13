@@ -67,7 +67,8 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       gridTemplateColumns: {
-        laptop: "repeat(auto, minmax(300px, 1fr))",
+        mobile: "repeat(3, minmax(100px, 1fr))",
+        laptop: "repeat(5, minmax(200px, 300px))",
       },
     },
   },

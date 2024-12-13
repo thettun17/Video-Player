@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function SelectedMovie({ selectedItem }: SelectedMovieProps) {
   return (
     <>
-      <div className="hidden w-[29rem] flex-none self-stretch relative rounded-tl-lg px-[2.5rem] py-[2rem] bg-[#0f0d20] h-full-custom z-10  md:flex flex-col">
+      <div className="hidden md:w-[30%] flex-none self-stretch relative rounded-tl-lg px-[2.5rem] py-[2rem] bg-[#0f0d20] h-full-custom z-10  md:flex flex-col">
         <div className="absolute w-full h-full left-[-10] right-[-10px] top-[10px] bottom-[10px] z-[-1]">
           <img
             src={selectedItem.image}

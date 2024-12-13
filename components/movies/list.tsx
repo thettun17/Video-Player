@@ -202,8 +202,8 @@ export default function List() {
   return (
     <>
       <div className="w-full flex justify-between">
-        <ScrollArea className="grow h-full-custom px-4">
-          <div className="grid md:grid-cols-laptop  gap-4  w-full">
+        <ScrollArea className="w-full md:w-[70%] h-full-custom px-4">
+          <div className="grid grid-cols-mobile md:grid-cols-laptop gap-4 w-full">
             {popularMovie.map((item, index) => (
               <MovieCard
                 key={index}
