@@ -216,17 +216,13 @@ export default function Page() {
               <BreadcrumbItem className="hidden md:block">
                 <BreadcrumbLink href="/">Home</BreadcrumbLink>
               </BreadcrumbItem>
-              {/* <BreadcrumbSeparator className="hidden md:block" />
-              <BreadcrumbItem>
-                <BreadcrumbPage>Videos</BreadcrumbPage>
-              </BreadcrumbItem> */}
             </BreadcrumbList>
           </Breadcrumb>
         </div>
         <SearchForm />
       </header>
-      <ScrollArea className="h-full-custom w-full px-4">
-        <div className="w-full">
+      <ScrollArea className="h-full-custom px-4">
+        <div className="w-full max-w-full overflow-x-hidden">
           <VideoCarousel type="Popular - Movie" data={popularMovie} />
           <VideoCarousel type="Popular - Series" data={popularSeries} />
           <VideoCarousel type="Featured - Movie" data={featuredMovies} />

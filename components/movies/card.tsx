@@ -10,7 +10,7 @@ interface CartItem {
 export default function MovieCard({ item, onSelect }: CartItem) {
   return (
     <>
-      <div className="p-1 self-stretch">
+      <div className="p-1">
         <Card
           className="flex flex-col items-center rounded-none justify-center cursor-pointer "
           onClick={onSelect}
