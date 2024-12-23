@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function SelectedMovie({ selectedItem, isDetail }: SelectedMovieProps) {
   return (
     <>
-      <div className={` flex-none self-stretch relative rounded-tl-lg px-[2.5rem] py-[2rem] bg-[#0f0d20] h-full-custom z-10  md:flex flex-col ${isDetail ? 'md:w-full' : 'md:w-[30%] hidden'}`}>
+      <div className={`flex-none self-stretch relative rounded-tl-lg px-[2.5rem] py-[2rem] bg-[#0f0d20]  z-10  md:flex flex-col ${isDetail ? 'md:w-full' : 'md:w-[30%] hidden h-full-custom'}`}>
         <div className="absolute w-full h-full left-[-10] right-[-10px] top-[10px] bottom-[10px] z-[-1]">
           <img
             src={selectedItem.image}
@@ -33,8 +33,8 @@ export default function SelectedMovie({ selectedItem, isDetail }: SelectedMovieP
           </div>
 
           <div className="mt-6 w-full">
-            <div className="mb-3 text-white/90">GENRES</div>
-            <div className="flex w-full flex-wrap gap-4">
+            <div className="mb-3 text-white/90 hidden md:block">GENRES</div>
+            <div className="flex w-full flex-wrap gap-4 justify-center md:justify-normal">
               <Link href="#" className="selected-item-btn">
                 Horry
               </Link>
