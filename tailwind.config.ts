@@ -69,6 +69,7 @@ export default {
       gridTemplateColumns: {
         mobile: "repeat(3, minmax(100px, 1fr))",
         laptop: "repeat(5, minmax(200px, 300px))",
+        laptop4: "repeat(4, minmax(200px, 300px))",
       },
     },
   },

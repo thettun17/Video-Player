@@ -3,16 +3,18 @@ interface CartItem {
   item: {
     image: string;
     title: string;
-  };
-  onSelect?: () => void;
+  },
+  onSelect?: () => void,
+  isSeleted: boolean
 }
 
-export default function MovieCard({ item, onSelect }: CartItem) {
+export default function MovieCard({ item, onSelect, isSeleted }: CartItem) {
+
   return (
     <>
       <div className="p-1">
         <Card
-          className="flex flex-col items-center rounded-none justify-center cursor-pointer "
+          className={`flex flex-col items-center rounded-none justify-center cursor-pointer ${isSeleted ? "selected-card" : ""}`}
           onClick={onSelect}
         >
           <CardContent className="p-1 overflow-hidden">

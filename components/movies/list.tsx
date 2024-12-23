@@ -195,25 +195,29 @@ export default function List() {
     title: string;
   }
   const [selectedMovie, setSelectedMovie] = useState<Movie>(popularMovie[0]);
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
-  const handleMovieSelect = (movie: Movie) => {
+  const handleMovieSelect = (movie: Movie, index: number) => {
+    setSelectedIndex(index)
     setSelectedMovie(movie);
   };
+
   return (
     <>
       <div className="w-full flex justify-between">
         <ScrollArea className="w-full md:w-[70%] h-full-custom px-4">
-          <div className="grid grid-cols-mobile md:grid-cols-laptop gap-4 w-full">
+          <div className="grid grid-cols-mobile md:grid-cols-laptop4 gap-4 w-full">
             {popularMovie.map((item, index) => (
               <MovieCard
                 key={index}
                 item={item}
-                onSelect={() => handleMovieSelect(item)}
+                onSelect={() => handleMovieSelect(item, index)}
+                isSeleted={selectedIndex == index}
               />
             ))}
           </div>
         </ScrollArea>
-        <SelectedMovie  selectedItem={selectedMovie} />
+        <SelectedMovie selectedItem={selectedMovie} />
       </div>
     </>
   );
