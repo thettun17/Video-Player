@@ -1,7 +1,10 @@
+'use client'
+
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import MovieCard from "./card";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 interface VideoInterface {
   type: string;
   data: {
@@ -10,7 +13,16 @@ interface VideoInterface {
   }[];
 }
 
+interface Movie {
+  image: string;
+  title: string;
+}
+
 export default function VideoCarousel({ type, data }: VideoInterface) {
+  const router = useRouter()
+  const clickHandleFunction = (item: Movie) => {
+    router.push(`/videos/89`)
+  }
   return (
     <>
       <div className="md:mx-12 mt-4">
@@ -25,7 +37,7 @@ export default function VideoCarousel({ type, data }: VideoInterface) {
 
         <div className="grid grid-cols-3 md:grid-cols-6 w-full">
           {data.map((item, index) => (
-            <MovieCard key={index} item={item} />
+            <MovieCard key={index} item={item} onSelect={ () => clickHandleFunction(item) } />
           ))}
         </div>
       </div>

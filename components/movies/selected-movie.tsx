@@ -1,12 +1,13 @@
 interface SelectedMovieProps {
-  selectedItem: { image: string; title: string };
+  selectedItem: { image: string; title: string },
+  isDetail: boolean
 }
 import { CirclePlay, BookmarkCheck } from "lucide-react";
 import Link from "next/link";
-export default function SelectedMovie({ selectedItem }: SelectedMovieProps) {
+export default function SelectedMovie({ selectedItem, isDetail }: SelectedMovieProps) {
   return (
     <>
-      <div className="hidden md:w-[30%] flex-none self-stretch relative rounded-tl-lg px-[2.5rem] py-[2rem] bg-[#0f0d20] h-full-custom z-10  md:flex flex-col">
+      <div className={` flex-none self-stretch relative rounded-tl-lg px-[2.5rem] py-[2rem] bg-[#0f0d20] h-full-custom z-10  md:flex flex-col ${isDetail ? 'md:w-full' : 'md:w-[30%] hidden'}`}>
         <div className="absolute w-full h-full left-[-10] right-[-10px] top-[10px] bottom-[10px] z-[-1]">
           <img
             src={selectedItem.image}

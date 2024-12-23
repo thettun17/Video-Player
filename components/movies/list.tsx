@@ -3,7 +3,9 @@ import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import MovieCard from "./card";
 import SelectedMovie from "./selected-movie";
+import { useRouter } from "next/navigation";
 export default function List() {
+  const router = useRouter()
   const popularMovie = [
     {
       title: "Smile - 2",
@@ -198,15 +200,18 @@ export default function List() {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
   const handleMovieSelect = (movie: Movie, index: number) => {
+    if (selectedIndex == index) {
+      router.push(`/videos/8999`)
+    }
     setSelectedIndex(index)
-    setSelectedMovie(movie);
+    setSelectedMovie(movie)
   };
 
   return (
     <>
       <div className="w-full flex justify-between">
         <ScrollArea className="w-full md:w-[70%] h-full-custom px-4">
-          <div className="grid grid-cols-mobile md:grid-cols-laptop4 gap-4 w-full">
+          <div className="grid grid-cols-mobile md:grid-cols-laptop gap-4 w-full">
             {popularMovie.map((item, index) => (
               <MovieCard
                 key={index}
@@ -217,7 +222,7 @@ export default function List() {
             ))}
           </div>
         </ScrollArea>
-        <SelectedMovie selectedItem={selectedMovie} />
+        <SelectedMovie selectedItem={selectedMovie} isDetail={false} />
       </div>
     </>
   );
