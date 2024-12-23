@@ -5,7 +5,7 @@ interface CartItem {
     title: string;
   },
   onSelect?: () => void,
-  isSeleted: boolean
+  isSeleted?: boolean
 }
 
 export default function MovieCard({ item, onSelect, isSeleted }: CartItem) {
