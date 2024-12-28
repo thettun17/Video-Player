@@ -38,10 +38,8 @@ const Player = () => {
                             attributes: {
                                 controlsList: 'nodownload'
                             },
-                            forceHLS: true, // Force the use of hls.js
                             hlsOptions: {
                                 startLevel: 3
-
                             },
                             hlsVersion: '0.13.1',
                         }
