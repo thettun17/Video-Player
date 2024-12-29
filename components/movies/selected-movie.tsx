@@ -82,7 +82,7 @@ export default function SelectedMovie({ selectedItem, isDetail }: SelectedMovieP
           <div className="circle-btn group/save">
             <BookmarkCheck className="group-hover/save:text-white"/>
           </div>
-          <Link href="#" className="player-btn group/player hover:bg-green-500">
+          <Link href="/videos/98/play" className="player-btn group/player hover:bg-green-500">
             <CirclePlay className="group-hover/player:text-white"/>
             <span className="group-hover/player:text-white">Play</span>
           </Link>
