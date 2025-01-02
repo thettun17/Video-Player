@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import {
   Sidebar,
@@ -52,9 +54,15 @@ const items = [
   // }
 ];
 
+import { useSession, signIn, signOut } from "next-auth/react";
+
 export default function AppSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
+
+  const { data: session } = useSession();
+
+  console.log(session);
   return (
     <Sidebar {...props} collapsible="icon">
       <SidebarHeader>
@@ -107,15 +115,16 @@ export default function AppSidebar({
                 side="top"
                 className="w-[--radix-popper-anchor-width]"
               >
-                <DropdownMenuItem>
-                  <span>Account</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Billing</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Sign out</span>
-                </DropdownMenuItem>
+                {session?.user ? (
+                  <DropdownMenuItem onClick={() => signOut()}>
+                    <span>Sign out</span>
+                  </DropdownMenuItem>
+                ) : (
+                  <DropdownMenuItem onClick={() => signIn()}>
+                    <span>Sign in</span>
+                  </DropdownMenuItem>
+                )}
+
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>
