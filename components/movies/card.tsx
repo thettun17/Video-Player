@@ -1,7 +1,7 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 interface CartItem {
   item: {
-    image: string;
+    poster: string;
     title: string;
   },
   onSelect?: () => void,
@@ -19,7 +19,7 @@ export default function MovieCard({ item, onSelect, isSeleted }: CartItem) {
         >
           <CardContent className="p-1 overflow-hidden">
             <img
-              src={item.image}
+              src={item.poster}
               alt={item.title}
               className="hover:scale-110 object-cover object-center"
             />

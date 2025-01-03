@@ -8,13 +8,13 @@ import { useRouter } from "next/navigation";
 interface VideoInterface {
   type: string;
   data: {
-    image: string;
+    poster: string;
     title: string;
   }[];
 }
 
 interface Movie {
-  image: string;
+  poster: string;
   title: string;
 }
 

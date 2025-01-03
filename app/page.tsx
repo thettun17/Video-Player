@@ -1,3 +1,4 @@
+'use client';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -11,134 +12,146 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import VideoCarousel from "@/components/movies/video-carousel";
 import SearchForm from "@/components/search-form";
+import { useEffect, useState } from "react";
 
 export default function Page() {
+  const [movies, setMovies] = useState([]);
+
+  const fetchMovies = async () => {
+    const response = await fetch("/api/movies");
+    const data = await response.json();
+    console.log(data, "inside fetchMovies");
+    setMovies(data.data);
+  };
+
+  useEffect(() => {fetchMovies()}, []);
+
   const popularMovie = [
     {
       title: "Smile - 2",
-      image: "https://images.metahub.space/poster/small/tt29268110/img",
+      poster: "https://images.metahub.space/poster/small/tt29268110/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt10466872/img",
+      poster: "https://images.metahub.space/poster/small/tt10466872/img",
       title: "Dune: Prophecy",
     },
     {
       title: "Smile - 2",
-      image: "https://images.metahub.space/poster/small/tt29268110/img",
+      poster: "https://images.metahub.space/poster/small/tt29268110/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt10466872/img",
+      poster: "https://images.metahub.space/poster/small/tt10466872/img",
       title: "Dune: Prophecy",
     },
     {
       title: "Smile - 2",
-      image: "https://images.metahub.space/poster/small/tt29268110/img",
+      poster: "https://images.metahub.space/poster/small/tt29268110/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt10466872/img",
+      poster: "https://images.metahub.space/poster/small/tt10466872/img",
       title: "Dune: Prophecy",
     },
     {
       title: "Smile - 2",
-      image: "https://images.metahub.space/poster/small/tt29268110/img",
+      poster: "https://images.metahub.space/poster/small/tt29268110/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt10466872/img",
+      poster: "https://images.metahub.space/poster/small/tt10466872/img",
       title: "Dune: Prophecy",
     },
     {
       title: "Smile - 2",
-      image: "https://images.metahub.space/poster/small/tt29268110/img",
+      poster: "https://images.metahub.space/poster/small/tt29268110/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt10466872/img",
+      poster: "https://images.metahub.space/poster/small/tt10466872/img",
       title: "Dune: Prophecy",
     },
     {
       title: "Smile - 2",
-      image: "https://images.metahub.space/poster/small/tt29268110/img",
+      poster: "https://images.metahub.space/poster/small/tt29268110/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt10466872/img",
+      poster: "https://images.metahub.space/poster/small/tt10466872/img",
       title: "Dune: Prophecy",
     },
     {
       title: "Smile - 2",
-      image: "https://images.metahub.space/poster/small/tt29268110/img",
+      poster: "https://images.metahub.space/poster/small/tt29268110/img",
     },
   ];
 
   const popularSeries = [
     {
       title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
+      poster: "https://images.metahub.space/poster/small/tt11126994/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      poster: "https://images.metahub.space/poster/small/tt9813792/img",
       title: "From",
     },
     {
       title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
+      poster: "https://images.metahub.space/poster/small/tt11126994/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      poster: "https://images.metahub.space/poster/small/tt9813792/img",
       title: "From",
     },
     {
       title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
+      poster: "https://images.metahub.space/poster/small/tt11126994/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      poster: "https://images.metahub.space/poster/small/tt9813792/img",
       title: "From",
     },
     {
       title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
+      poster: "https://images.metahub.space/poster/small/tt11126994/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      poster: "https://images.metahub.space/poster/small/tt9813792/img",
       title: "From",
     },
     {
       title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
+      poster: "https://images.metahub.space/poster/small/tt11126994/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      poster: "https://images.metahub.space/poster/small/tt9813792/img",
       title: "From",
     },
     {
       title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
+      poster: "https://images.metahub.space/poster/small/tt11126994/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      poster: "https://images.metahub.space/poster/small/tt9813792/img",
       title: "From",
     },
     {
       title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
+      poster: "https://images.metahub.space/poster/small/tt11126994/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      poster: "https://images.metahub.space/poster/small/tt9813792/img",
       title: "From",
     },
     {
       title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
+      poster: "https://images.metahub.space/poster/small/tt11126994/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      poster: "https://images.metahub.space/poster/small/tt9813792/img",
       title: "From",
     },
     {
       title: "Arcane",
-      image: "https://images.metahub.space/poster/small/tt11126994/img",
+      poster: "https://images.metahub.space/poster/small/tt11126994/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt9813792/img",
+      poster: "https://images.metahub.space/poster/small/tt9813792/img",
       title: "From",
     },
   ];
@@ -146,62 +159,62 @@ export default function Page() {
   const featuredMovies = [
     {
       title: "The Day of the Jackal",
-      image: "https://images.metahub.space/poster/small/tt24053860/img",
+      poster: "https://images.metahub.space/poster/small/tt24053860/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt14218830/img",
+      poster: "https://images.metahub.space/poster/small/tt14218830/img",
       title: "Abbott Elementary",
     },
     {
       title: "The Day of the Jackal",
-      image: "https://images.metahub.space/poster/small/tt24053860/img",
+      poster: "https://images.metahub.space/poster/small/tt24053860/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt14218830/img",
+      poster: "https://images.metahub.space/poster/small/tt14218830/img",
       title: "Abbott Elementary",
     },
     {
       title: "The Day of the Jackal",
-      image: "https://images.metahub.space/poster/small/tt24053860/img",
+      poster: "https://images.metahub.space/poster/small/tt24053860/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt14218830/img",
+      poster: "https://images.metahub.space/poster/small/tt14218830/img",
       title: "Abbott Elementary",
     },
     {
       title: "The Day of the Jackal",
-      image: "https://images.metahub.space/poster/small/tt24053860/img",
+      poster: "https://images.metahub.space/poster/small/tt24053860/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt14218830/img",
+      poster: "https://images.metahub.space/poster/small/tt14218830/img",
       title: "Abbott Elementary",
     },
     {
       title: "The Day of the Jackal",
-      image: "https://images.metahub.space/poster/small/tt24053860/img",
+      poster: "https://images.metahub.space/poster/small/tt24053860/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt14218830/img",
+      poster: "https://images.metahub.space/poster/small/tt14218830/img",
       title: "Abbott Elementary",
     },
     {
       title: "The Day of the Jackal",
-      image: "https://images.metahub.space/poster/small/tt24053860/img",
+      poster: "https://images.metahub.space/poster/small/tt24053860/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt14218830/img",
+      poster: "https://images.metahub.space/poster/small/tt14218830/img",
       title: "Abbott Elementary",
     },
     {
       title: "The Day of the Jackal",
-      image: "https://images.metahub.space/poster/small/tt24053860/img",
+      poster: "https://images.metahub.space/poster/small/tt24053860/img",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt14218830/img",
+      poster: "https://images.metahub.space/poster/small/tt14218830/img",
       title: "Abbott Elementary",
     },
     {
-      image: "https://images.metahub.space/poster/small/tt14218830/img",
+      poster: "https://images.metahub.space/poster/small/tt14218830/img",
       title: "Abbott Elementary",
     },
   ];
@@ -223,6 +236,7 @@ export default function Page() {
       </header>
       <ScrollArea className="h-full-custom px-4">
         <div className="w-full max-w-full overflow-x-hidden">
+          <VideoCarousel type=" Movie" data={movies} />
           <VideoCarousel type="Popular - Movie" data={popularMovie} />
           <VideoCarousel type="Popular - Series" data={popularSeries} />
           <VideoCarousel type="Featured - Movie" data={featuredMovies} />

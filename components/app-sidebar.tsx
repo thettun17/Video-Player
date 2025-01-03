@@ -108,7 +108,7 @@ export default function AppSidebar({
                     <span>Sign out</span>
                   </DropdownMenuItem>
                 ) : (
-                  <DropdownMenuItem onClick={() => signIn()}>
+                  <DropdownMenuItem onClick={() => signIn('google')}>
                     <span>Sign in</span>
                   </DropdownMenuItem>
                 )}
