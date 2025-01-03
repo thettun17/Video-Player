@@ -21,7 +21,7 @@ export default async function Page({ params }: { params: AsyncType<Params> }) {
     const id = (await params).id;
     const movie = {
         title: "The Day of the Jackal",
-        image: "https://images.metahub.space/poster/small/tt29268110/img",
+        poster: "https://images.metahub.space/poster/small/tt29268110/img",
     }
     return (
         <>
