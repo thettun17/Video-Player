@@ -41,17 +41,7 @@ const items = [
     title: "Videos",
     url: "/videos",
     icon: Film,
-  },
-  // {
-  //   title: "Calendar",
-  //   url: "#",
-  //   icon: Calendar,
-  // },
-  // {
-  //   title: "Search",
-  //   url: "#",
-  //   icon: Search,
-  // }
+  }
 ];
 
 import { useSession, signIn, signOut } from "next-auth/react";
@@ -61,8 +51,6 @@ export default function AppSidebar({
 }: React.ComponentProps<typeof Sidebar>) {
 
   const { data: session } = useSession();
-
-  console.log(session);
   return (
     <Sidebar {...props} collapsible="icon">
       <SidebarHeader>
