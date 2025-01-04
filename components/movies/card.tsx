@@ -12,16 +12,16 @@ export default function MovieCard({ item, onSelect, isSeleted }: CartItem) {
 
   return (
     <>
-      <div className="p-1">
+      <div className="p-2">
         <Card
-          className={`flex flex-col items-center rounded-none shrink justify-center cursor-pointer h-[250px] ${isSeleted ? "selected-card" : " "} `}
+          className={`flex flex-col items-center rounded-none shrink justify-center cursor-pointer h-[180px] md:h-[250px] lg:h-[300px] ${isSeleted ? "selected-card" : " "} `}
           onClick={onSelect}
         >
-          <CardContent className="p-1 overflow-hidden">
+          <CardContent className="p-1 overflow-hidden w-full">
             <img
               src={item.poster}
               alt={item.title}
-              className="hover:scale-110 object-cover object-center"
+              className="hover:scale-110 object-cover object-center w-full h-full"
             />
           </CardContent>
           <CardFooter className="p-1 hidden md:block text-center w-full truncate text-sm">{item.title}</CardFooter>

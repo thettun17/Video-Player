@@ -35,7 +35,7 @@ export default function VideoCarousel({ type, data }: VideoInterface) {
           </Button>
         </div>
 
-        <div className="grid grid-cols-3 md:grid-cols-6 w-full">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 w-full">
           {data.map((item, index) => (
             <MovieCard key={index} item={item} onSelect={ () => clickHandleFunction(item) } />
           ))}
