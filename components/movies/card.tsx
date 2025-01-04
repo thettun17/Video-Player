@@ -14,7 +14,7 @@ export default function MovieCard({ item, onSelect, isSeleted }: CartItem) {
     <>
       <div className="p-1">
         <Card
-          className={`flex flex-col items-center rounded-none shrink justify-center cursor-pointer ${isSeleted ? "selected-card" : ""}`}
+          className={`flex flex-col items-center rounded-none shrink justify-center cursor-pointer h-[250px] ${isSeleted ? "selected-card" : " "} `}
           onClick={onSelect}
         >
           <CardContent className="p-1 overflow-hidden">
@@ -24,7 +24,7 @@ export default function MovieCard({ item, onSelect, isSeleted }: CartItem) {
               className="hover:scale-110 object-cover object-center"
             />
           </CardContent>
-          <CardFooter className="p-1 hidden md:block text-center text-sm">{item.title}</CardFooter>
+          <CardFooter className="p-1 hidden md:block text-center w-full truncate text-sm">{item.title}</CardFooter>
         </Card>
       </div>
     </>
