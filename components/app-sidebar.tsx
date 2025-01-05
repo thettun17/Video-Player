@@ -37,11 +37,11 @@ const items = [
     url: "/",
     icon: Home,
   },
-  {
-    title: "Videos",
-    url: "/videos",
-    icon: Film,
-  }
+  // {
+  //   title: "Videos",
+  //   url: "/videos",
+  //   icon: Film,
+  // }
 ];
 
 import { useSession, signIn, signOut } from "next-auth/react";

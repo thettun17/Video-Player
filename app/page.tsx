@@ -7,30 +7,14 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import VideoCarousel from "@/components/movies/video-carousel";
+// import { ScrollArea } from "@/components/ui/scroll-area";
+// import VideoCarousel from "@/components/movies/video-carousel";
 import SearchForm from "@/components/search-form";
-import { useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useState } from "react"
+import List from "@/components/movies/list";
 
-const fetchMovies = async () => {
-  const response = await fetch("/api/movies");
-  const data = await response.json();
-  return data.data;
-};
 export default function Page() {
-  const { data, error, isLoading, isError } = useQuery({
-    queryKey: ["movies"],
-    queryFn: fetchMovies,
-  });
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (isError) {
-    return <div>Error: {error.message}</div>;
-  }
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   return (
     <>
@@ -46,14 +30,15 @@ export default function Page() {
             </BreadcrumbList>
           </Breadcrumb>
         </div>
-        <SearchForm />
+        <SearchForm handleSearch={setSearchTerm}/>
       </header>
-      <ScrollArea className="h-full-custom px-4">
+      {/* <ScrollArea className="h-full-custom px-4">
         <div className="w-full max-w-full overflow-x-hidden">
-          <VideoCarousel type=" Movie" data={data} />
+          <VideoCarousel type="Movie" searchTerm={searchTerm}/>
         </div>
         <div className="mb-5"></div>
-      </ScrollArea>
+      </ScrollArea> */}
+       <List searchTerm={searchTerm} />
     </>
   );
 }

@@ -1,227 +1,118 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import MovieCard from "./card";
 import SelectedMovie from "./selected-movie";
 import { useRouter } from "next/navigation";
-export default function List() {
-  const router = useRouter()
-  const popularMovie = [
-    {
-      title: "Smile - 2",
-      poster: "https://images.metahub.space/poster/small/tt29268110/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt10466872/img",
-      title: "Dune: Prophecy",
-    },
-    {
-      title: "Smile - 2",
-      poster: "https://images.metahub.space/poster/small/tt29268110/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt10466872/img",
-      title: "Dune: Prophecy",
-    },
-    {
-      title: "Smile - 2",
-      poster: "https://images.metahub.space/poster/small/tt29268110/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt10466872/img",
-      title: "Dune: Prophecy",
-    },
-    {
-      title: "Smile - 2",
-      poster: "https://images.metahub.space/poster/small/tt29268110/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt10466872/img",
-      title: "Dune: Prophecy",
-    },
-    {
-      title: "Smile - 2",
-      poster: "https://images.metahub.space/poster/small/tt29268110/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt10466872/img",
-      title: "Dune: Prophecy",
-    },
-    {
-      title: "Smile - 2",
-      poster: "https://images.metahub.space/poster/small/tt29268110/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt10466872/img",
-      title: "Dune: Prophecy",
-    },
-    {
-      title: "Smile - 2",
-      poster: "https://images.metahub.space/poster/small/tt29268110/img",
-    },
-    {
-      title: "Arcane",
-      poster: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "Arcane",
-      poster: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "Arcane",
-      poster: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "Arcane",
-      poster: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "Arcane",
-      poster: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "Arcane",
-      poster: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "Arcane",
-      poster: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "Arcane",
-      poster: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "Arcane",
-      poster: "https://images.metahub.space/poster/small/tt11126994/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt9813792/img",
-      title: "From",
-    },
-    {
-      title: "The Day of the Jackal",
-      poster: "https://images.metahub.space/poster/small/tt24053860/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt14218830/img",
-      title: "Abbott Elementary",
-    },
-    {
-      title: "The Day of the Jackal",
-      poster: "https://images.metahub.space/poster/small/tt24053860/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt14218830/img",
-      title: "Abbott Elementary",
-    },
-    {
-      title: "The Day of the Jackal",
-      poster: "https://images.metahub.space/poster/small/tt24053860/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt14218830/img",
-      title: "Abbott Elementary",
-    },
-    {
-      title: "The Day of the Jackal",
-      poster: "https://images.metahub.space/poster/small/tt24053860/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt14218830/img",
-      title: "Abbott Elementary",
-    },
-    {
-      title: "The Day of the Jackal",
-      poster: "https://images.metahub.space/poster/small/tt24053860/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt14218830/img",
-      title: "Abbott Elementary",
-    },
-    {
-      title: "The Day of the Jackal",
-      poster: "https://images.metahub.space/poster/small/tt24053860/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt14218830/img",
-      title: "Abbott Elementary",
-    },
-    {
-      title: "The Day of the Jackal",
-      poster: "https://images.metahub.space/poster/small/tt24053860/img",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt14218830/img",
-      title: "Abbott Elementary",
-    },
-    {
-      poster: "https://images.metahub.space/poster/small/tt14218830/img",
-      title: "Abbott Elementary",
-    },
-  ];
-  interface Movie {
-    poster: string;
-    title: string;
+import InfiniteScroll from "react-infinite-scroll-component";
+
+const fetchMovies = async (search: string, page: number) => {
+  const trimmedSearch = search?.trim();
+  let url = `/api/movies?page=${page}&limit=20`;
+  if (trimmedSearch) {
+    url = `/api/movies?search=${encodeURIComponent(trimmedSearch)}&page=${page}&limit=10`;
   }
-  const [selectedMovie, setSelectedMovie] = useState<Movie>(popularMovie[0]);
+
+  const response = await fetch(url);
+  const data = await response.json();
+  return data; // Assuming the response includes data and pagination info
+};
+
+interface Movie {
+  poster: string;
+  title: string;
+}
+
+export default function List({ searchTerm }: { searchTerm: string }) {
+  const router = useRouter();
+
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState<string>("");
+  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [page, setPage] = useState<number>(1);
+  const [hasMore, setHasMore] = useState<boolean>(true);
+  const [movies, setMovies] = useState<Movie[]>([]);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+      setPage(1)
+      if(searchTerm === null) {
+        setHasMore(true)
+      }
+    }, 500);
+    return () => clearTimeout(handler);
+   
+  }, [searchTerm]);
+
+  const { data, error, isLoading, isError } = useQuery<any, Error>({
+    queryKey: ["movies", debouncedSearchTerm, page],
+    queryFn: () => fetchMovies(debouncedSearchTerm, page),
+  });
+
+  useEffect(() => {
+    if (data) {
+      if (page === 1) {
+        setMovies(data.movies);
+        setSelectedMovie(data.movies[0])
+      } else {
+        setMovies((prevMovies) => [...prevMovies, ...data.movies]); 
+      }
+      setHasMore((data?.pagination?.totalPages !== page)); 
+    }
+  }, [data, page]);
+
+  const fetchMoreData = () => {
+    if (hasMore) {
+      setPage((prev) => {
+        return prev + 1
+      });
+    }
+    console.log(page, "Has page")
+  };
 
   const handleMovieSelect = (movie: Movie, index: number) => {
-    if (selectedIndex == index) {
-      router.push(`/videos/8999`)
+    if (selectedIndex === index) {
+      router.push(`/videos/8999`);
     }
-    setSelectedIndex(index)
-    setSelectedMovie(movie)
+    setSelectedIndex(index);
+    setSelectedMovie(movie);
   };
+
+  if (isLoading && page === 1) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error: {error.message}</div>;
+  }
+  
 
   return (
     <>
       <div className="w-full flex justify-between">
-        <ScrollArea className="w-full md:w-[70%] h-full-custom px-4">
-          <div className="grid grid-cols-mobile md:grid-cols-laptop gap-4 w-full">
-            {popularMovie.map((item, index) => (
-              <MovieCard
-                key={index}
-                item={item}
-                onSelect={() => handleMovieSelect(item, index)}
-                isSeleted={selectedIndex == index}
-              />
-            ))}
-          </div>
-        </ScrollArea>
+        <div id="scrollableDiv" style={{ overflow: "auto" }} className="w-full md:w-[70%] h-full-custom px-4">
+          <InfiniteScroll
+            dataLength={data?.pagination?.totalMovies}
+            next={fetchMoreData}
+            hasMore={true}
+            loader={<h4>Loading...</h4>}
+            inverse={false}
+            scrollableTarget="scrollableDiv"
+          >
+            <div className="grid grid-cols-mobile md:grid-cols-laptop gap-4 w-full">
+              {movies.map((item: Movie, index: number) => (
+                <MovieCard
+                  key={index}
+                  item={item}
+                  onSelect={() => handleMovieSelect(item, index)}
+                  isSeleted={selectedIndex === index}
+                />
+              ))}
+            </div>
+          </InfiniteScroll>
+        </div>
         <SelectedMovie selectedItem={selectedMovie} isDetail={false} />
       </div>
     </>

@@ -1,5 +1,5 @@
 interface SelectedMovieProps {
-  selectedItem: { poster: string; title: string },
+  selectedItem: { poster: string; title: string } | null,
   isDetail: boolean
 }
 import { CirclePlay, BookmarkCheck } from "lucide-react";
@@ -10,14 +10,14 @@ export default function SelectedMovie({ selectedItem, isDetail }: SelectedMovieP
       <div className={`flex-none self-stretch relative rounded-tl-lg px-[2.5rem] py-[2rem] bg-[#0f0d20]  z-10  md:flex flex-col ${isDetail ? 'md:w-full' : 'md:w-[30%] hidden h-full-custom'}`}>
         <div className="absolute w-full h-full left-[-10] right-[-10px] top-[10px] bottom-[10px] z-[-1]">
           <img
-            src={selectedItem.poster}
+            src={selectedItem?.poster}
             alt=""
             className="w-full h-full object-cover object-center opacity-[0.3] blur-[10px] block"
           />
         </div>
 
         <div className="text-white self-stretch flex-1 pt-4 z-20 overflow-y-auto">
-          <h1 className="text-3xl mb-8 text-center">{selectedItem.title}</h1>
+          <h1 className="text-3xl mb-8 text-center">{selectedItem?.title}</h1>
           <div className="flex justify-between w-full mt-4">
             <div>127 min</div>
             <div>2024</div>

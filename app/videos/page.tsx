@@ -1,3 +1,4 @@
+"use client"
 import List from "@/components/movies/list";
 import SearchForm from "@/components/search-form";
 import {
@@ -11,8 +12,10 @@ import {
 
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { useState } from "react"
 
 export default function Page() {
+  const [searchTerm, setSearchTerm] = useState<string>("");
   return (
     <>
       <header className="flex items-center justify-between h-16 border-b px-4 ">
@@ -31,7 +34,7 @@ export default function Page() {
             </BreadcrumbList>
           </Breadcrumb>
         </div>
-        <SearchForm />
+         <SearchForm handleSearch={setSearchTerm}/>
       </header>
       <List />
     </>
