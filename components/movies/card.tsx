@@ -12,7 +12,7 @@ export default function MovieCard({ item, onSelect, isSeleted }: CartItem) {
 
   return (
     <>
-      <div className="p-2">
+      <div className="p-1">
         <Card
           className={`flex flex-col items-center rounded-none shrink justify-center cursor-pointer h-[180px] md:h-[250px] lg:h-[300px] ${isSeleted ? "selected-card" : " "} `}
           onClick={onSelect}
