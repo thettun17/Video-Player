@@ -1,11 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import MovieCard from "./card";
 import SelectedMovie from "./selected-movie";
 import { useRouter } from "next/navigation";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { Movie } from "@/utils/movie";
 
 const fetchMovies = async (search: string, page: number) => {
   const trimmedSearch = search?.trim();
@@ -16,17 +16,11 @@ const fetchMovies = async (search: string, page: number) => {
 
   const response = await fetch(url);
   const data = await response.json();
-  return data; // Assuming the response includes data and pagination info
+  return data;
 };
-
-interface Movie {
-  poster: string;
-  title: string;
-}
 
 export default function List({ searchTerm }: { searchTerm: string }) {
   const router = useRouter();
-
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState<string>("");
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
@@ -81,11 +75,11 @@ export default function List({ searchTerm }: { searchTerm: string }) {
   };
 
   if (isLoading && page === 1) {
-    return <div>Loading...</div>;
+    return <div className="text-center w-full">Loading...</div>;
   }
 
   if (isError) {
-    return <div>Error: {error.message}</div>;
+    return <div className="text-center w-full">Error: {error.message}</div>;
   }
   
 
@@ -97,7 +91,7 @@ export default function List({ searchTerm }: { searchTerm: string }) {
             dataLength={data?.pagination?.totalMovies}
             next={fetchMoreData}
             hasMore={true}
-            loader={<h4>Loading...</h4>}
+            loader={<h4 className="text-center w-full">Loading...</h4>}
             inverse={false}
             scrollableTarget="scrollableDiv"
           >

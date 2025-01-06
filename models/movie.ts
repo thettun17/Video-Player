@@ -12,12 +12,16 @@ const movieSchema = new Schema(
             required: [true, 'Title is required'],
         },
         year: {
-            type: Number,
+            type: String,
             required: [true, 'Year is required'],
         },
         minutes: {
             type: Number,
             required: [true, 'Minutes is required'],
+        },
+        resolution: {
+            type: String,
+            required: [true, 'Resolution is required']
         },
         rating: {
             type: Number,
@@ -44,6 +48,10 @@ const movieSchema = new Schema(
         },
         poster: {
             type: String,
+        },
+        plot: {
+            type: String,
+            required: [true, 'Plot is required']
         }
     },
     { timestamps: true }

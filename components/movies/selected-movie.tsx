@@ -1,9 +1,10 @@
-interface SelectedMovieProps {
-  selectedItem: { poster: string; title: string } | null,
-  isDetail: boolean
-}
 import { CirclePlay, BookmarkCheck } from "lucide-react";
 import Link from "next/link";
+import { Movie } from "@/utils/movie";
+interface SelectedMovieProps {
+  selectedItem: Movie | null
+  isDetail: boolean
+}
 export default function SelectedMovie({ selectedItem, isDetail }: SelectedMovieProps) {
   return (
     <>
@@ -19,71 +20,56 @@ export default function SelectedMovie({ selectedItem, isDetail }: SelectedMovieP
         <div className="text-white self-stretch flex-1 pt-4 z-20 overflow-y-auto">
           <h1 className="text-3xl mb-8 text-center">{selectedItem?.title}</h1>
           <div className="flex justify-between w-full mt-4">
-            <div>127 min</div>
-            <div>2024</div>
-            <div>1080p</div>
+            <div>{selectedItem?.minutes} min</div>
+            <div>{selectedItem?.year}</div>
+            <div>{selectedItem?.resolution && "1080p"}</div>
           </div>
           <div className="mt-4 leading-relaxed">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Recusandae ab iste a labore tenetur ipsa exercitationem ut! Nemo
-              dolor quis cupiditate, beatae at dolores magnam suscipit, rerum
-              soluta, obcaecati deserunt!
+              {selectedItem?.plot}
             </p>
           </div>
 
           <div className="mt-6 w-full">
             <div className="mb-3 text-white/90 hidden md:block">GENRES</div>
             <div className="flex w-full flex-wrap gap-4 justify-center md:justify-normal">
-              <Link href="#" className="selected-item-btn">
-                Horry
-              </Link>
-              <Link href="#" className="selected-item-btn">
-                Mystrey
-              </Link>
-              <Link href="#" className="selected-item-btn">
-                Thriller
-              </Link>
+              {selectedItem?.genres.map((genre: string, genreIndex: number) => (
+                <Link href="" className="selected-item-btn" key={genreIndex}>
+                  {genre}
+                </Link>
+              ))}
             </div>
           </div>
 
           <div className="mt-6 w-full">
             <div className="mb-3 text-white/90">Cast</div>
             <div className="flex w-full flex-wrap gap-4">
-              <Link href="#" className="selected-item-btn">
-                Horry
-              </Link>
-              <Link href="#" className="selected-item-btn">
-                Mystrey
-              </Link>
-              <Link href="#" className="selected-item-btn">
-                Thriller
-              </Link>
-              <Link href="#" className="selected-item-btn">
-                Thriller
-              </Link>
+              {selectedItem?.cast.map((cast: string, castIndex: number) => (
+                <Link href="" className="selected-item-btn" key={castIndex}>
+                  {cast}
+                </Link>
+              ))}
             </div>
           </div>
 
           <div className="mt-6 w-full">
             <div className="mb-3 text-white/90">Directors</div>
             <div className="flex w-full flex-wrap gap-4">
-              <Link href="#" className="selected-item-btn">
-                Horry
-              </Link>
-              <Link href="#" className="selected-item-btn">
-                Mystrey
-              </Link>
+              {selectedItem?.directors.map((director: string, directorIndex: number) => (
+                <Link href="#" className="selected-item-btn" key={directorIndex}>
+                  {director}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
 
         <div className="self-end flex w-full justify-between pt-14 text-red-50">
           <div className="circle-btn group/save">
-            <BookmarkCheck className="group-hover/save:text-white"/>
+            <BookmarkCheck className="group-hover/save:text-white" />
           </div>
           <Link href="/videos/98/play" className="player-btn group/player hover:bg-green-500">
-            <CirclePlay className="group-hover/player:text-white"/>
+            <CirclePlay className="group-hover/player:text-white" />
             <span className="group-hover/player:text-white">Play</span>
           </Link>
         </div>
